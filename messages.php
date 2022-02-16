@@ -154,7 +154,7 @@ if(!isset($_SESSION['user_email'])){
                echo'
                <form action="" method="POST">
                  <textarea class="form-control" placeholder="Enter your Message" name="msg_box" id="message_textarea"></textarea>
-                 <input type="submit" name="send_msg" id="btn-msg" disabled value="Send">
+                 <input type="submit" name="send_msg" id="btn-msg" value="Send">
                </form><br><br>
                ';
              }
@@ -170,7 +170,7 @@ if(!isset($_SESSION['user_email'])){
              }else if(strlen($msg) > 37){
                echo"<h4 style='color:red;text-align: center;'>Message is too long! Use only 37 characters</h4>";
              }else{
-               $insert = "insert into user_messages(user_to,user_from,msg_body,date_msg,msg_seen) values ('$user_to_msg','$user_from_msg','$msg',NOW(),'no'";
+               $insert = "INSERT INTO `user_messages` (`user_to`,`user_from`,`msg_body`,`date`,`msg_seen`) values ('$user_to_msg','$user_from_msg','$msg',NOW(),'no'";
 
                $run_insert = mysqli_query($con, $insert);
              }

@@ -115,7 +115,7 @@
 					</div><br>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-						<input type="date" class="form-control input-md" placeholder="Email" name="u_birthday" required="required">
+						<input type="date" class="form-control input-md" placeholder="Birthday" name="u_birthday" required="required">
 					</div><br>
 					<a class="btn btn-warning" style="text-decoration: none;float: right;color: #187FAB;" data-toggle="tooltip" title="Signin" href="signin.php">Already have an account?</a><br><br>
 

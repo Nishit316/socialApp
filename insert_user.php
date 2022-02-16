@@ -22,10 +22,10 @@ include("includes/connection.php");
 		$check_username_query = "select user_name from users where user_email='$email'";
 		$run_username = mysqli_query($con,$check_username_query);
 
-		if(strlen($pass) >=6 && strlen($pass) <=60 ){
-			echo"<script>alert('Password should be greater than 6 characters!')</script>";
-			exit();
-		}
+		// if(strlen($pass) >=6 && strlen($pass) <=60 ){
+		// 	echo"<script>alert('Password should be greater than 6 characters!')</script>";
+		// 	exit();
+		// }
 
 		$check_email = "select * from users where user_email='$email'";
 		$run_email = mysqli_query($con,$check_email);

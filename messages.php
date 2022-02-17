@@ -82,9 +82,9 @@ if(!isset($_SESSION['user_email'])){
       $user = $_SESSION['user_email'];
       $get_user = "select * from users where user_email='$user'";
       $run_user = mysqli_query($con, $get_user);
-      $row_user = mysqli_fetch_array($run_user);
+      $row = mysqli_fetch_array($run_user);
 
-      $user_from_msq = $row['user_id'];
+      $user_from_msg = $row['user_id'];
       $user_from_name = $row['user_name'];
     ?>
     
@@ -115,7 +115,7 @@ if(!isset($_SESSION['user_email'])){
     <div class="col-sm-6">
         <div class="load_msg" id="scroll_messages">
              <?php
-                $sel_msg = "select * from user_messages where (user_to='$user_to_msg' AND user_from='$user_from_msg' OR (user_from='$user_to_msg' AND user_to='$user_from_msg') ORDER by 1 ASC";
+                $sel_msg = "select * from user_messages where (user_to='$user_to_msg' AND user_from='$user_from_msg') OR (user_from='$user_to_msg' AND user_to='$user_from_msg') ORDER by 1 ASC";
                 $run_msg = mysqli_query($con, $sel_msg);
 
                 while($row_msg = mysqli_fetch_array($run_msg)){
@@ -170,7 +170,7 @@ if(!isset($_SESSION['user_email'])){
              }else if(strlen($msg) > 37){
                echo"<h4 style='color:red;text-align: center;'>Message is too long! Use only 37 characters</h4>";
              }else{
-               $insert = "INSERT INTO `user_messages` (`user_to`,`user_from`,`msg_body`,`date`,`msg_seen`) values ('$user_to_msg','$user_from_msg','$msg',NOW(),'no'";
+               $insert = "insert into user_messages(user_to,user_from,msg_body,date,msg_seen) values ('$user_to_msg', '$user_from_msg', '$msg', NOW(), 'no')";
 
                $run_insert = mysqli_query($con, $insert);
              }
